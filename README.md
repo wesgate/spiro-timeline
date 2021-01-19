@@ -18,3 +18,9 @@ $ yarn generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+To run netlify cms locally run the proxy:
+
+npx netlify-cms-proxy-server
+
+and then run yarn dev

@@ -1,13 +1,10 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
-  server: {
-    port: 3001, // default: 3000
-  },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'spiro-timeline',
+    title: 'Spiro Timeline',
     htmlAttrs: {
       lang: 'en'
     },
@@ -17,7 +14,8 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,700;1,300;1,700&display=swap' }
     ]
   },
 
@@ -37,17 +35,37 @@ export default {
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss'
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/fontawesome'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios'
+    '@nuxtjs/axios',
+    '@nuxtjs/markdownit'
   ],
+
+  devModules: [
+    '@nuxtjs/eslint-module'
+  ],
+  
+  eslint: {
+    fix: true
+  },
+
+  tailwindcss: {
+    cssPath: '~/assets/css/tailwind.css'
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},
+
+  fontawesome: {
+    icons: {
+      solid: ['faSearchPlus']
+    }
+  },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
