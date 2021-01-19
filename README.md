@@ -24,3 +24,5 @@ To run netlify cms locally run the proxy:
 npx netlify-cms-proxy-server
 
 and then run yarn dev
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b7604bbe-9ba1-405f-93b2-86d067dee1f1/deploy-status)](https://app.netlify.com/sites/determined-jones-7104dc/deploys)
