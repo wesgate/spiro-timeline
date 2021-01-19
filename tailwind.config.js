@@ -11,7 +11,7 @@ module.exports = {
   theme: {
     colors: {
       black: '#000000',
-      blue: '#1B2D3B',
+      navy: '#1B2D3B',
       red: '#5E0A27',
       orange: '#F79653',
       yellow: '#FFD393',
@@ -19,14 +19,14 @@ module.exports = {
     },
     fill: {
       black: '#000000',
-      blue: '#1B2D3B',
+      navy: '#1B2D3B',
       red: '#5E0A27',
       orange: '#F79653',
       yellow: '#FFD393'
     },
     backgroundColor: {
       white: '#FFFFFF',
-      blue: '#1B2D3B',
+      navy: '#1B2D3B',
       red: '#5E0A27',
       orange: '#F79653',
       yellow: '#FFD393',
@@ -34,7 +34,7 @@ module.exports = {
     },
     textColor: {
       black: '#000000',
-      blue: '#1B2D3B',
+      navy: '#1B2D3B',
       red: '#5E0A27',
       orange: '#F79653',
       yellow: '#FFD393',
@@ -42,7 +42,7 @@ module.exports = {
     },
     borderColor: {
       black: '#000000',
-      blue: '#1B2D3B',
+      navy: '#1B2D3B',
       red: '#5E0A27',
       orange: '#F79653',
       yellow: '#FFD393',

@@ -4,7 +4,7 @@
       <h1 class="text-5xl">
         Spiro Start
       </h1>
-      <nuxt-link class="bg-yellow font-bold text-center py-2 px-6 block mt-4 text-red" to="/timeline">
+      <nuxt-link class="bg-navy font-bold text-center py-2 px-6 block mt-4 text-yellow" to="/timeline">
         Timeline
       </nuxt-link>
     </div>

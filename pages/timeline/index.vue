@@ -67,7 +67,7 @@ export default {
           slug: 'category-1',
           sort: 1,
           year: '400BC - 700BC',
-          color: 'blue'
+          color: 'navy'
         },
         {
           title: 'Category 2',
@@ -89,7 +89,7 @@ export default {
           slug: 'category-3',
           sort: 4,
           year: '100AD - 700AD',
-          color: 'blue'
+          color: 'navy'
         }
       ]
     }

@@ -16,13 +16,11 @@
       </div>
       <div class="next-object w-1/4">
         <div class="object hide-detail">
-            <a href="#">
-                <img class="border-white border-4 block max-h-full max-w-full" src="https://placehold.it/1000x800" />
-                <div class="bg-red text-left flex object-detail">
-                    <p class="p-4 w-3/4">{{ currentObject.title }}</p>
-                    <a class="bg-orange block w-1/4 flex justify-center items-center text-2xl p-2" href="#"><font-awesome-icon class="fa-fw" icon="search-plus" /></a>
-                </div>
-            </a>
+            <img class="border-white border-4 block max-h-full max-w-full" src="https://placehold.it/1000x800" />
+            <div class="bg-red text-left flex object-detail">
+                <p class="p-4 w-3/4">{{ currentObject.title }}</p>
+                <a class="bg-orange block w-1/4 flex justify-center items-center text-2xl p-2" href="#"><font-awesome-icon class="fa-fw" icon="search-plus" /></a>
+            </div>
         </div>
       </div>
     </div>
