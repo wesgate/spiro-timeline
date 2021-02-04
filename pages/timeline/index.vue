@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="bg-red flex flex-col justify-center items-center min-h-screen text-white">
+    <div :class="`bg-${currentObjectCat.color}`" class="flex flex-col justify-center items-center min-h-screen text-white">
       <div class="heading w-full">
-        <Heading :category="currentObject.category" :title="currentObject.title" />
+        <Heading :category="currentObjectCat.title" :title="currentObject.title" />
       </div>
-      <div class="timeline-content border-l-20 border-orange text-center flex w-full h-full">
+      <div :class="`bg-${currentObjectCat.color}`" class="timeline-content border-l-20 border-orange text-center flex w-full h-full">
         <div class="object-rel w-1/4 text-left p-6 pr-0">
           <h1 class="text-7xl font-bold opacity-20 mb-12">
             {{ currentObject.number }}.
@@ -36,9 +36,9 @@
                     <div class="object w-full">
                       <div class="object pl-10">
                         <img class="border-white border-8 block max-h-full max-w-full" :src="object.image">
-                        <div class="bg-red text-left flex">
-                          <p class="p-4 w-3/4">
-                            {{ object.title }} ( {{ object.year | datePolarity }})
+                        <div class="bg-red object-detail opacity-0 transition-all ease-in-out duration-500 text-left flex">
+                          <p class="p-4 leading-tight text-sm w-3/4">
+                            {{ object.title }} <br> <span class="text-xs">{{ object.yearText }}</span>
                           </p>
                           <a class="bg-orange block w-1/4 flex justify-center items-center text-2xl p-2" href="#" @click.prevent="showModal = true"><font-awesome-icon class="fa-fw" icon="search-plus" /></a>
                         </div>
@@ -52,8 +52,8 @@
         </div>
       </div>
       <div class="timeline w-full text-center">
-        <div class="p-8 flex justify-center items-center pb-20 h-full">
-          <div class="relative flex justify-center items-center w-full">
+        <div class="p-8 flex flex-wrap justify-center items-center pb-20 h-full">
+          <div class="relative flex flex-wrap justify-center items-center w-full">
             <div v-for="(cat, index) in timelineCategories" :key="index" class="text-left" :style="{ width: catWidthInPx(cat) + 'px' }">
               <p class="category-title text-xs uppercase">
                 {{ cat.year }}
@@ -72,6 +72,14 @@
               class="slider absolute w-full"
               @change="onRangeSliderChange"
             >
+            <h4 class="miss-start time-label absolute left-0 font-bold">
+              | <br>
+              Mississippian Period Begins
+            </h4>
+            <h4 class="miss-end time-label absolute right-0 font-bold">
+              | <br>
+              Last Mississippian Kingdom Falls
+            </h4>
           </div>
         </div>
       </div>
@@ -79,27 +87,12 @@
     <transition v-if="showModal" name="modal">
       <div class="modal-mask">
         <div class="modal-wrapper">
-          <div class="modal-container bg-red border-l-20 border-orange flex flex-col justify-center items-center text-white">
-            <div class="modal-header flex w-full">
-              <div class="w-3/4 text-left">
-                <h1>{{ currentObject.title }}</h1>
-                <h2>{{ currentObject.category }}</h2>
-              </div>
-              <div class="w-1/4 flex flex-row-reverse items-center">
-                <button class="modal-default-button text-2xl p-2 bg-orange" @click="showModal = false">
-                  OK
-                </button>
-              </div>
-            </div>
-
+          <div class="modal-container bg-black flex justify-center items-center text-white relative">
+            <button class="modal-default-button absolute right-0 bottom-0 text-xl text-center p-2 px-6 bg-orange rounded-full" @click="showModal = false">
+              X Close
+            </button>
             <div class="modal-body">
               <img :src="currentObject.image">
-            </div>
-
-            <div class="modal-footer flex">
-              <div class="w-full text-2xl">
-                {{ currentObject.descriptive }}
-              </div>
             </div>
           </div>
         </div>
@@ -148,6 +141,13 @@ export default {
       const totalYears = this.latestYear - this.earliestYear
       const yearWidth = totWidth / totalYears
       return yearWidth
+    },
+    currentObjectCat () {
+      const categorySlug = this.currentObject.category
+      const currentCategory = this.timelineCategories.filter(function (category) {
+        return category.slug === categorySlug
+      })
+      return currentCategory[0]
     }
   },
   methods: {
@@ -176,7 +176,7 @@ export default {
       // The last slide is 'fake' to keep styling looking corect; can't display that one.
       if (params.currentSlide.index === this.objects.length - 1) {
         console.log('naughty, naughty. You went to the last slide!')
-        return this.$refs.mySlides.goToSlide(this.objects.length - 2)
+        return this.$refs.mySlides.goToSlide(0)
       }
 
       this.currentObject = this.objects[params.currentSlide.index]
@@ -186,6 +186,19 @@ export default {
 </script>
 
 <style>
+
+.time-label {
+  top: 100%;
+  max-width: 200px;
+  line-height: 1;
+  text-align: left;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.miss-end {
+  text-align: right;
+}
 
 .heading {
   height: 25vh;
@@ -223,11 +236,16 @@ export default {
 }
 .vueperslide--active .object {
   transform: scale(1.2, 1.2);
-  transition: all 1s ease-in;
+  transition: all 0.5s ease-in;
 }
 .vueperslide--active .object-holder {
   z-index: 999;
 }
+
+.vueperslide--active .object-detail {
+  opacity: 1;
+}
+
 .vueperslides__bullets {
   position: absolute;
   width: 1060px;
@@ -280,7 +298,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.75);
   display: table;
   transition: opacity 0.3s ease;
 }
@@ -291,8 +309,7 @@ export default {
 }
 
 .modal-container {
-  width: 864px;
-  height: 1704px;
+  width: 90%;
   margin: 0px auto;
   padding: 20px 30px;
   border-radius: 2px;

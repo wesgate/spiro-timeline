@@ -1,5 +1,5 @@
 {
-  "yearText": "700 AD - 900AD",
+  "yearText": "AD 700 - 900",
   "accn": "GM 61.1739",
   "tribe": "Choctaw",
   "date": "2021-02-04T16:12:30.335Z",
@@ -10,5 +10,5 @@
   "credit": "Gilcrease Museum, Tulsa, Oklahoma",
   "image": "/img/figure-0.15.jpg",
   "year": 700,
-  "category": "Mississippian Beginning"
+  "category": "category-1"
 }

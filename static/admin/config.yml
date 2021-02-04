@@ -14,7 +14,7 @@ collections:
     sortableFields: ['sort']
     format: 'json'
     create: true
-    slug: '{{slug}}-{{fields.slug}}'
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:
@@ -58,4 +58,4 @@ collections:
       - { label: 'Location', name: 'location', widget: 'string', required: false }
       - { label: 'Accession Number', name: 'accn', widget: 'string', required: false }
       - { label: 'Object Text', name: 'body', widget: 'markdown', required: false }
-      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['title'], value_field: 'title', displayFields: ['title'], required: false }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['title'], value_field: '{{slug}}', displayFields: ['title'], required: false }
