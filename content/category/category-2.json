@@ -1,9 +1,12 @@
 {
-  "title": "Mississippian Life",
-  "slug": "category-2",
-  "begin": 1055,
-  "end": 1200,
-  "year": "AD 1050-1200",
   "color": "red",
+  "begin": 1055,
+  "slug": "category-2",
+  "reference": "William the Conquer invades England in 1066 AD.",
+  "referenceImage": "/img/willaim-the-conquerer.jpg",
+  "history": "Cahokia’s Pyramids begin construction around 1050 AD.",
+  "title": "Mississippian Life",
+  "end": 1200,
+  "year": "AD 1050",
   "sort": 2
 }

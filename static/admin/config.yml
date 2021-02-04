@@ -32,6 +32,9 @@ collections:
       - { label: 'End', name: 'end', widget: 'number', value_type: 'int' }
       - { label: 'Year', name: 'year', widget: 'string' }
       - { label: 'Color', name: 'color', widget: 'string' }
+      - { label: 'Mississippian History', name: 'history', widget: 'markdown', required: true }
+      - { label: 'History Reference', name: 'reference', widget: 'markdown', required: true }
+      - { label: 'History Reference Image', name: 'referenceImage', widget: 'image', required: false }
   - name: 'object'
     label: 'Object'
     folder: 'content/object'

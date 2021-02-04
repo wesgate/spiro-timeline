@@ -1,9 +1,12 @@
 {
-  "title": "Mississippian Beginning",
-  "slug": "category-1",
-  "begin": 800,
-  "end": 1050,
-  "year": "AD 800 - 1050",
   "color": "navy",
+  "begin": 800,
+  "slug": "category-1",
+  "reference": "Algebra, from the Arabic word, Al-Jabr, is formally established in Baghdad in 830 AD.",
+  "referenceImage": "/img/algebra.jpg",
+  "history": "The Mississippian Period begins around 800 AD.",
+  "title": "Mississippian Beginning",
+  "end": 1050,
+  "year": "AD 800",
   "sort": 1
 }

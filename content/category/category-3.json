@@ -1,9 +1,12 @@
 {
-  "title": "Etowah",
-  "slug": "category-3",
-  "sort": 3,
+  "color": "orange",
   "begin": 1200,
+  "slug": "category-3",
+  "reference": "Genghis Khan Invades China in 1205 AD and creates the foundations for the largest empire in the history of the world.",
+  "referenceImage": "/img/genghis_khan.jpg",
+  "history": "Etowah is reconstituted and Moundville changes from a ceremonial center to an ossuary.",
+  "title": "Etowah",
   "end": 1400,
-  "year": "AD 1200 - 1400",
-  "color": "orange"
+  "year": "AD 1200",
+  "sort": 3
 }

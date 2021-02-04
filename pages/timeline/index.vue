@@ -1,8 +1,13 @@
 <template>
   <div>
+    <v-idle
+      :duration="210"
+      :events="idle.events"
+      @idle="onidle"
+    />
     <div :class="`bg-${currentObjectCat.color}`" class="flex flex-col justify-center items-center min-h-screen text-white">
       <div class="heading w-full">
-        <Heading :category="currentObjectCat.title" :title="currentObject.title" />
+        <Heading :category="currentObjectCat" :title="currentObject.title" />
       </div>
       <div :class="`bg-${currentObjectCat.color}`" class="timeline-content border-l-20 border-orange text-center flex w-full h-full">
         <div class="object-rel w-1/4 text-left p-6 pr-0">
@@ -35,7 +40,7 @@
                   <div class="object-details w-full flex pt-24 pl-4 pb-4 items-center justify-center">
                     <div class="object w-full">
                       <div class="object pl-10">
-                        <img class="border-white border-8 block max-h-full max-w-full" :src="object.image">
+                        <img class="border-white border-8 block max-h-full max-w-full" :src="object.image + '?nf_resize=fit&w=600&h=960'">
                         <div class="bg-red object-detail opacity-0 transition-all ease-in-out duration-500 text-left flex">
                           <p class="p-4 leading-tight text-sm w-3/4">
                             {{ object.title }} <br> <span class="text-xs">{{ object.yearText }}</span>
@@ -53,8 +58,8 @@
       </div>
       <div class="timeline w-full text-center">
         <div class="p-8 flex flex-wrap justify-center items-center pb-20 h-full">
-          <div class="relative flex flex-wrap justify-center items-center w-full">
-            <div v-for="(cat, index) in timelineCategories" :key="index" class="text-left" :style="{ width: catWidthInPx(cat) + 'px' }">
+          <div class="relative flex flex-wrap justify-center items-center w-full range-bar">
+            <div v-for="(cat, index) in timelineCategories" :key="index" :class="{ last: index == timelineCategories.length - 1 }" class="text-left" :style="{ width: catWidthInPx(cat) + 'px' }">
               <p class="category-title text-xs uppercase">
                 {{ cat.year }}
               </p>
@@ -92,7 +97,7 @@
               X Close
             </button>
             <div class="modal-body">
-              <img :src="currentObject.image">
+              <img :src="currentObject.image + '?nf_resize=fit&w=1200&h=1800'">
             </div>
           </div>
         </div>
@@ -120,6 +125,13 @@ export default {
   data () {
     return {
       showModal: false,
+      idle: {
+        events: [
+          'mousemove',
+          'keypress',
+          'click'
+        ]
+      },
       currentObject: this.$store.state.objects[0]
     }
   },
@@ -151,6 +163,9 @@ export default {
     }
   },
   methods: {
+    onidle () {
+      this.$router.push('/')
+    },
     catWidthInPx (cat) {
       const yearsInCat = cat.end - cat.begin
       const catWidth = yearsInCat * this.yearWidth
@@ -186,6 +201,9 @@ export default {
 </script>
 
 <style>
+.v-idle {
+    display: none;
+}
 
 .time-label {
   top: 100%;
@@ -217,7 +235,7 @@ export default {
   height: 100%;
   background-image: url('/img/timeline-bg.jpg');
   filter: grayscale(100%);
-  opacity: 0.15;
+  opacity: 0.10;
 }
 
 .timeline {
@@ -329,6 +347,10 @@ export default {
 
 .modal-default-button {
   float: right;
+}
+
+.range-bar .last {
+  text-align: right !important;
 }
 
 /*

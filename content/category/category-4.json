@@ -1,9 +1,12 @@
 {
-  "title": "Spiro Chamber",
-  "slug": "category-4",
-  "sort": 4,
+  "color": "navy",
   "begin": 1400,
-  "end": 1650,
-  "year": "AD 1400 - 1650",
-  "color": "navy"
+  "slug": "category-4",
+  "reference": "Joan of Arc is burned at the stake in 1431 AD.",
+  "referenceImage": "/img/200px-joan_of_arc_miniature_graded.jpg",
+  "history": "Spiro’s Hollow Chamber is built.",
+  "title": "Spiro Chamber",
+  "end": 1550,
+  "year": "AD 1400",
+  "sort": 4
 }

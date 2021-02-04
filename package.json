@@ -12,9 +12,10 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.5",
-    "@nuxtjs/markdownit": "^1.2.10",
+    "@nuxtjs/markdownit": "^2.0.0",
     "core-js": "^3.8.2",
     "nuxt": "^2.14.12",
+    "v-idle": "^0.2.0",
     "vueperslides": "^2.12.1"
   },
   "devDependencies": {
