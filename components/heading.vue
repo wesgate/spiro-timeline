@@ -4,10 +4,10 @@
       <div v-html="$md.render(category.history)"></div>
     </div>
     <div class="w-1/2 bg-orange flex text-navy relative justify-center items-center pl-8">
-      <div class="image py-4 w-1/3">
+      <div class="image py-4 w-1/4">
         <img :src="category.referenceImage + '?nf_resize=fit&w=110&h=175'" :title="category.title" />
       </div>
-      <div class="text p-8">
+      <div class="text p-8 w-3/4">
         <h4 class="font-bold mb-2"><font-awesome-icon class="fa-fw" icon="history" /> In World History</h4>
         <div v-html="$md.render(category.reference)"></div>
       </div>
