@@ -61,4 +61,4 @@ collections:
       - { label: 'Location', name: 'location', widget: 'string', required: false }
       - { label: 'Accession Number', name: 'accn', widget: 'string', required: false }
       - { label: 'Object Text', name: 'body', widget: 'markdown', required: false }
-      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['title'], value_field: '{{slug}}', displayFields: ['title'], required: false }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['title'], value_field: '{{slug}}', displayFields: ['title', 'year', 'end'], required: true }

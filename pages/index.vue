@@ -4,8 +4,8 @@
     <div class="relative h-screen flex items-center justify-center">
       <div class="control-wrapper bg-red w-full p-12 pt-32">
         <Logo />
-        <h1 class="text-center text-3xl text-white uppercase tracking-widest leading-tight mt-8 mb-12">
-          Explore Spiro and the Mississippian World through a virtual timeline
+        <h1 class="text-center text-xl text-orange text-white uppercase tracking-widest leading-tight mt-8 mb-12">
+          Explore Collection Highlights from <em>Spiro and the Mississippian World</em> through a virtual timeline
         </h1>
         <h3>
           <nuxt-link class="video-play-button text-center" to="/timeline/">

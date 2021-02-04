@@ -93,11 +93,46 @@
       <div class="modal-mask">
         <div class="modal-wrapper">
           <div class="modal-container bg-black flex justify-center items-center text-white relative">
-            <button class="modal-default-button absolute right-0 bottom-0 text-xl text-center p-2 px-6 bg-orange rounded-full" @click="showModal = false">
+            <button class="modal-default-button absolute -mr-4 -mb-4 right-0 bottom-0 text-xl text-center p-2 px-6 bg-orange rounded-full" @click="showModal = false">
               X Close
             </button>
-            <div class="modal-body">
-              <img :src="currentObject.image + '?nf_resize=fit&w=1200&h=1800'">
+            <div class="modal-body text-center">
+              <img class="mx-auto" :src="currentObject.image + '?nf_resize=fit&w=1200&h=1800'">
+              <div class="details-content mt-8 px-12 pb-12 text-left">
+                <h1 class="font-bold text-xl tracking-wide mb-1">
+                  {{ currentObject.title }}
+                </h1>
+                <h4 v-if="currentObject.subtitle" class="uppercase">
+                  {{ currentObject.subtitle }}
+                </h4>
+                <h4 v-if="currentObject.artist" class="uppercase">
+                  {{ currentObject.artist }}
+                </h4>
+                <h4 v-if="currentObject.yearText" class="uppercase">
+                  {{ currentObject.yearText }}
+                </h4>
+                <h4 v-if="currentObject.medium" class="uppercase">
+                  {{ currentObject.medium }}
+                </h4>
+                <p v-if="currentObject.tribe">
+                  {{ currentObject.tribe }}
+                </p>
+                <p v-if="currentObject.size">
+                  {{ currentObject.size }}
+                </p>
+                <p v-if="currentObject.location">
+                  {{ currentObject.location }}
+                </p>
+                <p v-if="currentObject.credit">
+                  {{ currentObject.credit }}
+                </p>
+                <p v-if="currentObject.accn">
+                  {{ currentObject.accn }}
+                </p>
+                <p v-if="currentObject.description">
+                  {{ currentObject.description }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -212,6 +247,14 @@ export default {
   text-align: left;
   margin-top: 1rem;
   font-size: 0.9rem;
+}
+
+.bg-orange .text-orange {
+  @apply text-navy;
+}
+
+.bg-orange .heading .text-navy {
+  @apply text-orange bg-red;
 }
 
 .miss-end {
