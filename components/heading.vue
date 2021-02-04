@@ -1,6 +1,6 @@
 <template>
   <div class="p-8 flex justify-center items-end pb-20 h-full">
-    <h1 class="w-1/2 leading-none font-bold text-black opacity-20">{{ category }}</h1>
+    <h1 class="w-1/2 leading-none font-bold text-orange">{{ category }}</h1>
     <h3 class="w-1/2 text-right font-bold">{{ title }}</h3>
   </div>
 </template>

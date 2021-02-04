@@ -2,21 +2,21 @@
   <div>
     <div class="bg-red flex flex-col justify-center items-center min-h-screen text-white">
       <div class="heading w-full">
-        <Heading :category="currentObject.categoryTitle" :title="currentObject.title" />
+        <Heading :category="currentObject.category" :title="currentObject.title" />
       </div>
       <div class="timeline-content border-l-20 border-orange text-center flex w-full h-full">
         <div class="object-rel w-1/4 text-left p-6 pr-0">
           <h1 class="text-7xl font-bold opacity-20 mb-12">
             {{ currentObject.number }}.
           </h1>
-          <p>{{ currentObject.descriptive }}</p>
+          <p>{{ currentObject.subtitle }}</p>
         </div>
         <div class="w-3/4">
           <vueper-slides
             ref="mySlides"
             class="no-shadow"
-            :transition-speed="1000"
-            :arrows="false"
+            :transition-speed="400"
+            :arrows="true"
             :bullets="false"
             :visible-slides="1.8"
             :slide-ratio="800 / 1000"
@@ -32,10 +32,10 @@
             >
               <template #content>
                 <div class="flex h-full relative object-holder">
-                  <div class="object-details w-full flex pt-24 pl-4 pb-4 items-start justify-start">
+                  <div class="object-details w-full flex pt-24 pl-4 pb-4 items-center justify-center">
                     <div class="object w-full">
                       <div class="object pl-10">
-                        <img class="border-white border-8 block max-h-full max-w-full" :src="object.uri">
+                        <img class="border-white border-8 block max-h-full max-w-full" :src="object.image">
                         <div class="bg-red text-left flex">
                           <p class="p-4 w-3/4">
                             {{ object.title }} ( {{ object.year | datePolarity }})
@@ -83,7 +83,7 @@
             <div class="modal-header flex w-full">
               <div class="w-3/4 text-left">
                 <h1>{{ currentObject.title }}</h1>
-                <h2>{{ currentObject.categoryTitle }}</h2>
+                <h2>{{ currentObject.category }}</h2>
               </div>
               <div class="w-1/4 flex flex-row-reverse items-center">
                 <button class="modal-default-button text-2xl p-2 bg-orange" @click="showModal = false">
@@ -93,7 +93,7 @@
             </div>
 
             <div class="modal-body">
-              <img :src="currentObject.uri">
+              <img :src="currentObject.image">
             </div>
 
             <div class="modal-footer flex">
@@ -127,164 +127,16 @@ export default {
   data () {
     return {
       showModal: false,
-      currentObject: {
-        title: 'Timetwister',
-        number: 1,
-        category: 'category-1',
-        categoryTitle: 'Sorcery',
-        year: -900,
-        descriptive: 'Set Timetwister aside in a new ligravearcl pilc. Shudc your hhand,library, nd gravyard togetherinto h nw library nd draw a newhnd of even cards, leaving allcards in play whrc th arciuppuncnt must do the same.',
-        uri: 'https://i1.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2013/content_11329.jpg?w=900'
-      },
-      nextObject: {
-        title: 'Sample Next Object',
-        number: 3,
-        category: 'category-2',
-        categoryTitle: 'Category 2',
-        descriptive: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus molestie eleifend. Pellentesque mattis nunc laoreet, pellentesque libero suscipit, lobortis enim.'
-      },
-      objects: [
-        {
-          title: 'Timetwister',
-          number: 1,
-          category: 'category-1',
-          categoryTitle: 'Sorcery',
-          year: -900,
-          descriptive: 'Set Timetwister aside in a new ligravearcl pilc. Shudc your hhand,library, nd gravyard togetherinto h nw library nd draw a newhnd of even cards, leaving allcards in play whrc th arciuppuncnt must do the same.',
-          uri: 'https://i1.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2013/content_11329.jpg?w=900'
-        },
-        {
-          title: 'Tropical Island',
-          number: 2,
-          category: 'category-1',
-          categoryTitle: 'Land',
-          year: -720,
-          descriptive: 'Counts as both forest and islandsand is aected by spells that aecteither. Tap to add either  or D to¡your mana pool.',
-          uri: 'https://i1.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2022/content_8277.jpg?w=900'
-        },
-        {
-          title: 'Mox Emerald',
-          number: 3,
-          category: 'category-2',
-          categoryTitle: 'Mono Artifact',
-          year: -650,
-          descriptive: 'Add l grcen manato your mana pool.Tapping chis artifactcan be playedas an interrupt.',
-          uri: 'https://i2.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2014/content_4384.jpg?w=900'
-        },
-        {
-          title: 'Mox Pearl',
-          number: 4,
-          category: 'category-2',
-          categoryTitle: 'Mono Artifact',
-          year: -600,
-          descriptive: 'Add l white manato your mana poo .Tapping this artifactcan be playedas an interrupt.',
-          uri: 'https://i1.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2015/content_11869.jpg?w=900'
-        },
-        {
-          title: 'Mox Ruby',
-          number: 5,
-          category: 'category-2',
-          categoryTitle: 'Mono Artifact',
-          year: -500,
-          descriptive: 'Add l ed mana to yourmana pool. Tappingthis artifact ¿an bepLayed as an interrupt.',
-          uri: 'https://i1.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2016/content_ruby_13904_face.jpg?w=900'
-        },
-        {
-          title: 'Mox Jet',
-          number: 6,
-          category: 'category-2',
-          categoryTitle: 'Mono Artifact',
-          year: -400,
-          descriptive: 'Add l black manato your mana poo .Tapping this artifactcan be playedas an interrupt.',
-          uri: 'https://i2.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2017/content_6976.jpg?w=900'
-        },
-        {
-          title: 'Time Walk',
-          number: 7,
-          category: 'category-3',
-          categoryTitle: 'Sorcery',
-          year: 0,
-          descriptive: 'Take an extra turn after this one.',
-          uri: 'https://i2.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2020/content_6414.jpg?w=900'
-        },
-        {
-          title: 'Mox Sapphire',
-          number: 8,
-          category: 'category-4',
-          categoryTitle: 'Mono Artifact',
-          year: 100,
-          descriptive: 'Add l blue manato your mana poo .Tapping this artifactcan be playedas an interrupt.',
-          uri: 'https://i2.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2018/content_6310.jpg?w=900'
-        },
-        {
-          title: 'Ancestral Recal',
-          number: 9,
-          category: 'category-4',
-          categoryTitle: 'Instant',
-          year: 300,
-          descriptive: 'Draw 3 cards orforce opponentto draw 3 cards.',
-          uri: 'https://i0.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2019/content_ancestral_recall-full.jpg?w=900'
-        },
-        {
-          title: 'Black Lotus',
-          number: 10,
-          category: 'category-4',
-          categoryTitle: 'Mono Artifact',
-          year: 700,
-          descriptive: 'Add  mhnEl ()f any Lsinglc c()lor nfyc)ur LhoiL tu yuur mand F)c)()l,thcn i iscrded. Tapping thisrtifL`t cn b plyed as hnlnterrupt.',
-          uri: 'https://i1.wp.com/s3.amazonaws.com/media.completeset.com/stories/attachments/2021/content_12295.jpg?w=900'
-        },
-        {
-          title: 'Hidden',
-          number: 11,
-          category: 'none',
-          categoryTitle: 'none',
-          descriptive: 'I am hidden. Do not look at me!',
-          uri: 'https://placehold.it/800x1000'
-        }
-      ],
-      timelineCategories: [
-        {
-          title: 'Category 1',
-          slug: 'category-1',
-          sort: 1,
-          begin: -900,
-          end: -700,
-          year: '900BC - 700BC',
-          color: 'navy'
-        },
-        {
-          title: 'Category 2',
-          slug: 'category-2',
-          sort: 2,
-          begin: -700,
-          end: -400,
-          year: '700BC - 400BC',
-          color: 'red'
-        },
-        {
-          title: 'Category 3',
-          slug: 'category-3',
-          sort: 3,
-          begin: -400,
-          end: 100,
-          year: '400BC - 100AD',
-          color: 'orange'
-        },
-
-        {
-          title: 'Category 4',
-          slug: 'category-4',
-          sort: 4,
-          begin: 100,
-          end: 700,
-          year: '100AD - 700AD',
-          color: 'navy'
-        }
-      ]
+      currentObject: this.$store.state.objects[0]
     }
   },
   computed: {
+    objects () {
+      return this.$store.state.objects
+    },
+    timelineCategories () {
+      return this.$store.state.categories
+    },
     earliestYear () {
       return this.timelineCategories[0].begin
     },
@@ -309,6 +161,7 @@ export default {
       let nearestIdx = 0
       for (let i = 0; i < this.objects.length - 1; i++) {
         const nearestObj = this.objects[nearestIdx]
+        console.log(nearestObj)
         const obj = this.objects[i]
         if (Math.abs(obj.year - selectedYear) < Math.abs(nearestObj.year - selectedYear)) {
           nearestIdx = i
@@ -383,6 +236,16 @@ export default {
 
 .vueperslide:last-of-type {
   visibility: hidden;
+}
+
+.vueperslides__arrows .vueperslides__arrow--prev {
+  display: none;
+}
+
+.vueperslides__arrows .vueperslides__arrow--next {
+  height: 300px;
+  width: 150px;
+  opacity: 0;
 }
 
 .slider {

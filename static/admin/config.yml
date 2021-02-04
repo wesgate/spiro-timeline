@@ -7,17 +7,55 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: 'categories'
+    label: 'Category'
+    folder: 'content/category'
+    summary: '{{title}} | {{begin}} | {{color}}'
+    sortableFields: ['sort']
     format: 'json'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}-{{fields.slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
+      - {
+          label: 'Slug',
+          name: 'slug',
+          widget: 'string',
+          pattern: ['^[a-z0-9]+(?:-[a-z0-9]+)*$','A slug can have no spaces or special characters'],
+          required: false,
+          hint: 'The post URL (do not include folder or file extension)'
+        }
+      - { label: 'Sort', name: 'sort', widget: 'number', value_type: 'int' }
+      - { label: 'Begin', name: 'begin', widget: 'number', value_type: 'int' }
+      - { label: 'End', name: 'end', widget: 'number', value_type: 'int' }
+      - { label: 'Year', name: 'year', widget: 'string' }
+      - { label: 'Color', name: 'color', widget: 'string' }
+  - name: 'object'
+    label: 'Object'
+    folder: 'content/object'
+    summary: '{{title}} | {{year}}'
+    sortableFields: ['year']
+    format: 'json'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Subtitle', name: 'subtitle', widget: 'string', required: false }
       - { label: 'Image', name: 'image', widget: 'image' }
       - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: 'Fun Fact', name: 'funfact', widget: 'markdown', required: false }
+      - { label: 'Year', name: 'year', widget: 'number', value_type: 'int', required: true }
+      - { label: 'Year Text', name: 'yearText', widget: 'string', required: false }
+      - { label: 'Artist', name: 'artist', widget: 'string', required: false }
+      - { label: 'Medium', name: 'medium', widget: 'string', required: false }
+      - { label: 'Tribe', name: 'tribe', widget: 'string', required: false }
+      - { label: 'Size', name: 'size', widget: 'string', required: false }
+      - { label: 'Credit', name: 'credit', widget: 'string', required: false }
+      - { label: 'Location', name: 'location', widget: 'string', required: false }
+      - { label: 'Accession Number', name: 'accn', widget: 'string', required: false }
+      - { label: 'Object Text', name: 'body', widget: 'markdown', required: false }
+      - { label: 'Category', name: 'category', widget: 'relation', collection: 'categories', search_fields: ['title'], value_field: 'title', displayFields: ['title'], required: false }
