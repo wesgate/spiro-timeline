@@ -42,7 +42,7 @@ export default {
     '@nuxtjs/fontawesome'
   ],
 
-  // Modules: https://go.nuxtjs.dev/config-modules
+  //Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
