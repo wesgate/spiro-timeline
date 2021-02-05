@@ -57,7 +57,7 @@
         </div>
       </div>
       <div class="timeline w-full text-center">
-        <div class="p-8 flex justify-center items-center pb-20 h-full">
+        <div class="p-8 flex flex-wrap justify-center items-center pb-20 h-full">
           <div class="relative flex justify-center items-center w-full range-bar">
             <div v-for="(cat, index) in timelineCategories" :key="index" :class="{ last: index == timelineCategories.length - 1 }" class="text-left" :style="{ width: catWidthInPx(cat) + 'px' }">
               <p class="category-title text-xs uppercase">
